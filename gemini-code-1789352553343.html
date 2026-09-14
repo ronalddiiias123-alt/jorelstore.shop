@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorel Solutions — Produtos e Chaves</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bgDark: '#030508',
+            bgGlow: '#0B132B',
+            surface: '#0D1322',
+            surfaceAlt: '#131C31',
+            borderCol: '#1E2D4A',
+            borderStrong: '#3A5280',
+            accentBlue: '#2563EB',
+            accentBlueStrong: '#3B82F6',
+            accentGold: '#F59E0B',
+            accentGoldStrong: '#FBBF24',
+            dangerRed: '#EF4444',
+            dangerDim: '#451A1A'
+          },
+          fontFamily: {
+            rajdhani: ['Rajdhani', 'sans-serif'],
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: radial-gradient(circle at 50% -10%, #172554 0%, #090D16 45%, #030508 100%);
+      color: #EDEFF4;
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    .hexbg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.08;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 0 L56 16 L56 50 L28 66 L0 50 L0 16 Z' fill='none' stroke='%233B82F6' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-size: 56px 100px;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(5px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(3px); }
+    }
+    .shake { animation: shake 0.4s ease; }
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal-item { animation: reveal 0.5s cubic-bezier(.2,.8,.2,1); }
+  </style>
+</head>
+<body class="relative antialiased selection:bg-accentBlue selection:text-white">
+
+  <div class="hexbg"></div>
+
+  <!-- Header -->
+  <header class="flex items-center justify-between max-w-[1080px] mx-auto px-6 pt-6 gap-4 flex-wrap">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-surface border border-borderCol flex items-center justify-center shadow-lg overflow-hidden">
+        <svg class="w-6 h-6 text-accentBlueStrong" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <span class="font-rajdhani font-bold text-xl tracking-wider text-white">JOREL SOLUTIONS</span>
+    </div>
+    <nav class="flex gap-1.5 bg-surface border border-borderCol rounded-xl p-1 shadow-sm">
+      <a href="#produtos" class="text-white bg-surfaceAlt shadow-[inset_0_0_0_1px_#3A5280] text-sm font-semibold px-4 py-2 rounded-lg transition-all">Produtos</a>
+      <a href="#chaves" class="text-slate-400 hover:text-white text-sm font-semibold px-4 py-2 rounded-lg transition-all">Resgatar Chave</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-[1080px] mx-auto px-6 pt-12 pb-6 text-center" id="produtos">
+    <span class="inline-block py-1.5 px-4 rounded-full bg-blue-500/10 border border-blue-500/30 text-accentBlueStrong font-semibold text-xs tracking-wide uppercase mb-4">
+      Bem-vindo à Jorel Solution
+    </span>
+    <h1 class="font-rajdhani font-bold text-4xl md:text-5xl tracking-tight mb-4">
+      Compre. Receba sua <span class="text-accentGold">KEY</span>. Libere o arquivo.
+    </h1>
+    <p class="text-slate-300 text-base max-w-2xl mx-auto leading-relaxed mb-6">
+      Jorel Solution, a loja de confiança em serviços digitais, preços acessíveis, entrega rápida e suporte sempre disponível. Explore e aproveite.
+    </p>
+
+    <!-- Navigation Buttons -->
+    <div class="flex items-center justify-center gap-3 flex-wrap mb-8">
+      <a href="#grid" class="bg-accentBlue hover:bg-blue-600 text-white font-semibold text-sm px-6 py-3 rounded-xl shadow-lg transition-all flex items-center gap-2">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM16 3H8a2 2 0 0 0-2 2v2h12V5a2 2 0 0 0-2-2z"/></svg>
+        Ver produtos
+      </a>
+      <a href="#categorias" class="bg-surface hover:bg-surfaceAlt text-slate-200 border border-borderCol hover:border-borderStrong font-semibold text-sm px-6 py-3 rounded-xl shadow transition-all flex items-center gap-2">
+        <svg class="w-4 h-4 text-accentGold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        Ver categorias
+      </a>
+      <a href="https://discord.gg/kQ3WYrvMN" target="_blank" rel="noopener" class="bg-surface hover:bg-surfaceAlt text-slate-200 border border-borderCol hover:border-borderStrong font-semibold text-sm px-6 py-3 rounded-xl shadow transition-all flex items-center gap-2">
+        <svg class="w-4 h-4 text-indigo-400" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.927 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        Ver sociais
+      </a>
+    </div>
+
+    <!-- Search Bar & Category Filters -->
+    <div id="categorias" class="max-w-2xl mx-auto space-y-4 mb-2">
+      <!-- Search Input -->
+      <div class="relative">
+        <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </span>
+        <input type="text" id="searchInput" placeholder="Pesquisar produto pelo nome..." 
+          class="w-full bg-surface border border-borderCol rounded-2xl pl-12 pr-4 py-3.5 text-white placeholder-slate-500 text-sm outline-none focus:border-accentBlue focus:ring-2 focus:ring-accentBlue/30 transition-all shadow-inner">
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center justify-center gap-2 flex-wrap pt-1" id="categoryFilters">
+        <button data-cat="ALL" class="cat-btn bg-accentBlue text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all shadow">Todos</button>
+        <button data-cat="FIVEM" class="cat-btn bg-surface hover:bg-surfaceAlt text-slate-300 border border-borderCol text-xs font-semibold px-4 py-2 rounded-xl transition-all">FiveM</button>
+        <button data-cat="GAME" class="cat-btn bg-surface hover:bg-surfaceAlt text-slate-300 border border-borderCol text-xs font-semibold px-4 py-2 rounded-xl transition-all">Games</button>
+        <button data-cat="SPOOFER" class="cat-btn bg-surface hover:bg-surfaceAlt text-slate-300 border border-borderCol text-xs font-semibold px-4 py-2 rounded-xl transition-all">Spoofer</button>
+        <button data-cat="BYPASS" class="cat-btn bg-surface hover:bg-surfaceAlt text-slate-300 border border-borderCol text-xs font-semibold px-4 py-2 rounded-xl transition-all">Bypass</button>
+        <button data-cat="CS2" class="cat-btn bg-surface hover:bg-surfaceAlt text-slate-300 border border-borderCol text-xs font-semibold px-4 py-2 rounded-xl transition-all">CS2</button>
+        <button data-cat="EXECUTOR" class="cat-btn bg-surface hover:bg-surfaceAlt text-slate-300 border border-borderCol text-xs font-semibold px-4 py-2 rounded-xl transition-all">Executor</button>
+        <button data-cat="WARZONE" class="cat-btn bg-surface hover:bg-surfaceAlt text-slate-300 border border-borderCol text-xs font-semibold px-4 py-2 rounded-xl transition-all">Warzone</button>
+        <button data-cat="VALORANT" class="cat-btn bg-surface hover:bg-surfaceAlt text-slate-300 border border-borderCol text-xs font-semibold px-4 py-2 rounded-xl transition-all">Valorant</button>
+        <button data-cat="VPN" class="cat-btn bg-surface hover:bg-surfaceAlt text-slate-300 border border-borderCol text-xs font-semibold px-4 py-2 rounded-xl transition-all">VPN</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <main class="max-w-[1080px] mx-auto px-6 my-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="grid">
+    <!-- Products will be injected dynamically via JavaScript -->
+  </main>
+
+  <!-- No products found state -->
+  <div id="noResults" class="hidden text-center py-16">
+    <p class="text-slate-400 text-base">Nenhum produto encontrado com esse nome ou categoria.</p>
+  </div>
+
+  <p class="max-w-[1080px] mx-auto px-6 text-center text-slate-400 text-sm mb-16">
+    Comprou e não recebeu a chave? <a href="https://discord.gg/kQ3WYrvMN" target="_blank" rel="noopener" class="text-accentBlueStrong hover:underline">Fale com a gente no Discord</a>.
+  </p>
+
+  <!-- Key Redemption Section -->
+  <div class="max-w-[1080px] mx-auto px-6 pt-8 pb-4 text-center border-t border-borderCol/60" id="chaves">
+    <h2 class="font-rajdhani font-bold text-3xl mb-2 text-white">Área de Resgate</h2>
+    <p class="text-slate-400 text-sm max-w-md mx-auto">Insira sua chave de acesso gerada na compra para desbloquear seus arquivos instantaneamente.</p>
+  </div>
+
+  <div class="flex justify-center px-5 pb-24">
+    <div class="w-full max-w-[440px] bg-surface border border-borderCol rounded-2xl p-8 relative shadow-2xl overflow-hidden">
+      <!-- Gradient border aura -->
+      <div class="absolute inset-0 rounded-2xl pointer-events-none border border-transparent bg-gradient-to-br from-accentBlue/20 to-transparent"></div>
+
+      <div class="flex justify-center mb-5 relative z-10">
+        <div id="lockRing" class="w-14 h-14 rounded-full border border-borderCol flex items-center justify-center transition-all duration-400">
+          <svg class="w-6 h-6 text-accentBlueStrong transition-colors duration-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="10" width="16" height="10" rx="2"/>
+            <path id="shackle" d="M8 10V7a4 4 0 0 1 8 0v3" class="origin-bottom transition-transform duration-500"/>
+          </svg>
+        </div>
+      </div>
+
+      <h3 class="font-rajdhani font-bold text-2xl text-center mb-2 relative z-10">Toda chave abre uma porta</h3>
+      <p class="text-slate-400 text-sm text-center mb-6 relative z-10 leading-relaxed">Cole aqui a chave que você recebeu após a compra para validar o acesso.</p>
+
+      <div class="space-y-4 relative z-10">
+        <div>
+          <label for="keyInput" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Chave de acesso</label>
+          <input type="text" id="keyInput" placeholder="Ex: JOREL-XXXX-XXXX" autocomplete="off" spellcheck="false"
+            class="w-full bg-bgDark border border-borderCol rounded-xl px-4 py-3.5 text-white font-mono text-sm tracking-wider uppercase outline-none focus:border-accentBlue focus:ring-2 focus:ring-accentBlue/30 transition-all placeholder:font-sans placeholder:normal-case placeholder:text-slate-600">
+        </div>
+
+        <button id="verifyBtn" class="w-full bg-accentBlue hover:bg-blue-600 text-white font-semibold py-3.5 px-4 rounded-xl shadow-lg transition-all active:scale-[0.99] focus:outline-none focus:ring-2 focus:ring-accentBlueStrong focus:ring-offset-2 focus:ring-offset-surface">
+          Verificar chave
+        </button>
+
+        <div id="statusBox" class="hidden text-sm rounded-xl p-3.5 leading-relaxed transition-all"></div>
+
+        <div id="unlockedList" class="space-y-3 pt-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Complete Product catalog from jorelstore.shop
+    const PRODUCTS = [
+      {
+        id: "produto-1",
+        name: "ROCKSTAR FIVEM 2FA",
+        tag: "FIVEM",
+        categoryKey: "FIVEM",
+        price: "R$ 1,89",
+        description: "Conta Rockstar FiveM com autenticação de dois fatores e segurança total.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: ["8C6976E5B5410415BDE908BD4DEE15DFB167A9C873FC4BB8A81F6F2AB448A918"] // Test key: ADMIN-TEST-KEY-01
+      },
+      {
+        id: "produto-2",
+        name: "STEAM WL FIVEM",
+        tag: "FIVEM",
+        categoryKey: "FIVEM",
+        price: "R$ 0,69",
+        description: "Conta Steam com Whitelist configurada e pronta para servidores FiveM.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      },
+      {
+        id: "produto-3",
+        name: "GTA INSTALAVEL",
+        tag: "GAME",
+        categoryKey: "GAME",
+        price: "R$ 9,89",
+        description: "Cópia instalável e otimizada do jogo Grand Theft Auto para PC.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      },
+      {
+        id: "produto-4",
+        name: "SPOOFER 1 CLICK 7 DIAS",
+        tag: "SPOOFER",
+        categoryKey: "SPOOFER",
+        price: "R$ 19,89",
+        description: "Remoção rápida de Ban Global e HWID com ativação em 1 clique por 7 dias.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      },
+      {
+        id: "produto-5",
+        name: "JOREL BYPASS ADVANCED 7 DIAS",
+        tag: "BYPASS",
+        categoryKey: "BYPASS",
+        price: "R$ 24,96",
+        description: "Bypass Advanced altamente indetectável passando em todos os scanners.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      },
+      {
+        id: "produto-6",
+        name: "CS2 SKIN CHANGER 30 DIAS",
+        tag: "CS2",
+        categoryKey: "CS2",
+        price: "R$ 29,89",
+        description: "Skin Changer completo para CS2 com total segurança por 30 dias.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      },
+      {
+        id: "produto-7",
+        name: "SHARK MENU 30 DIAS",
+        tag: "EXECUTOR",
+        categoryKey: "EXECUTOR",
+        price: "R$ 70,00",
+        description: "Menu avançado com executor próprio e Spoofer Global integrado.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      },
+      {
+        id: "produto-8",
+        name: "STAN MENU 7 DIAS",
+        tag: "EXECUTOR",
+        categoryKey: "EXECUTOR",
+        price: "R$ 40,00",
+        description: "Executor próprio Stan Menu altamente estável válido por 7 dias.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      },
+      {
+        id: "produto-9",
+        name: "ORION EXTERNAL WARZONE 30 DIAS",
+        tag: "WARZONE",
+        categoryKey: "WARZONE",
+        price: "R$ 99,89",
+        description: "Acesso externo indetectável de alta performance para Call of Duty Warzone.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      },
+      {
+        id: "produto-10",
+        name: "SKIN CHANGER VAL LIFETIME",
+        tag: "VALORANT",
+        categoryKey: "VALORANT",
+        price: "R$ 299,89",
+        description: "Skin Changer de Valorant com licença vitalícia e atualizações automáticas.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      },
+      {
+        id: "produto-11",
+        name: "VPN PREMIUM 30 DIAS",
+        tag: "VPN",
+        categoryKey: "VPN",
+        price: "R$ 29,89",
+        description: "VPN Premium com IPs residenciais limpos e alta velocidade por 30 dias.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      },
+      {
+        id: "produto-12",
+        name: "FREE FIRE ANDROID 30 DIAS",
+        tag: "FREE FIRE",
+        categoryKey: "FREE FIRE",
+        price: "R$ 39,89",
+        description: "Solução otimizada para Free Fire Android indetectável por 30 dias.",
+        paymentUrl: "https://jorelstore.shop/",
+        downloadUrl: "#",
+        keyHashes: []
+      }
+    ];
+
+    let currentCategory = "ALL";
+    let searchQuery = "";
+
+    // Helper function to generate SHA-256 hash for key validation
+    async function gerarHash(texto) {
+      const normalizado = texto.trim().toUpperCase();
+      const dados = new TextEncoder().encode(normalizado);
+      const buffer = await crypto.subtle.digest("SHA-256", dados);
+      return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    // Render Products Grid based on filter & search
+    function renderProducts() {
+      const grid = document.getElementById("grid");
+      const noResults = document.getElementById("noResults");
+      grid.innerHTML = "";
+
+      const filtered = PRODUCTS.filter(p => {
+        const matchesCategory = currentCategory === "ALL" || p.categoryKey === currentCategory;
+        const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || p.description.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        noResults.classList.remove("hidden");
+      } else {
+        noResults.classList.add("hidden");
+        filtered.forEach(p => {
+          const card = document.createElement("div");
+          card.className = "relative bg-surface border border-borderCol rounded-2xl p-6 flex flex-col transition-all duration-200 hover:border-borderStrong hover:-translate-y-1 shadow-md reveal-item";
+          card.innerHTML = `
+            <div class="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-accentBlueStrong to-transparent opacity-60"></div>
+            <div class="font-mono text-xs text-accentBlueStrong tracking-wide mb-2.5 font-semibold">${p.tag || "DIGITAL"}</div>
+            <h3 class="font-rajdhani font-bold text-2xl mb-2 text-white">${p.name}</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6 flex-grow">${p.description}</p>
+            <div class="font-rajdhani font-bold text-2xl text-accentGoldStrong mb-4">${p.price}</div>
+            <a class="block text-center font-semibold text-sm bg-accentBlue text-white py-3 px-4 rounded-xl hover:brightness-110 transition-all shadow-md" href="${p.paymentUrl}" target="_blank" rel="noopener">Comprar agora</a>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    // Event Listeners for Filters & Search
+    document.querySelectorAll(".cat-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        document.querySelectorAll(".cat-btn").forEach(b => {
+          b.className = "cat-btn bg-surface hover:bg-surfaceAlt text-slate-300 border border-borderCol text-xs font-semibold px-4 py-2 rounded-xl transition-all";
+        });
+        e.target.className = "cat-btn bg-accentBlue text-white text-xs font-semibold px-4 py-2 rounded-xl transition-all shadow";
+        currentCategory = e.target.getAttribute("data-cat");
+        renderProducts();
+      });
+    });
+
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      renderProducts();
+    });
+
+    // Vault and Key Verification Logic
+    const cardElement = document.getElementById("card");
+    const lockRing = document.getElementById("lockRing");
+    const shackle = document.getElementById("shackle");
+    const input = document.getElementById("keyInput");
+    const btn = document.getElementById("verifyBtn");
+    const statusBox = document.getElementById("statusBox");
+    const unlockedList = document.getElementById("unlockedList");
+
+    const STORAGE_KEY = "jorel_unlocked_products";
+
+    function getUnlocked() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveUnlocked(ids) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+    }
+
+    function renderUnlocked() {
+      const ids = getUnlocked();
+      unlockedList.innerHTML = "";
+      
+      ids.forEach(id => {
+        const produto = PRODUCTS.find(p => p.id === id);
+        if (!produto) return;
+        const item = document.createElement("div");
+        item.className = "flex items-center justify-between gap-3 bg-[#1A180C] border border-amber-500/30 rounded-xl p-3.5 reveal-item";
+        item.innerHTML = `
+          <span class="text-sm font-semibold text-amber-200">${produto.name}</span>
+          <a href="${produto.downloadUrl}" download class="text-accentGoldStrong border border-amber-500/50 hover:bg-amber-500/10 rounded-lg px-3 py-1.5 text-xs font-semibold flex items-center gap-1.5 transition-all">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+            Baixar
+          </a>
+        `;
+        unlockedList.appendChild(item);
+      });
+
+      if (ids.length > 0) {
+        lockRing.classList.add("border-accentGold");
+        lockRing.querySelector("svg").classList.add("text-accentGoldStrong");
+        shackle.style.transform = "translateY(-2px) rotate(-18deg)";
+      }
+    }
+
+    function showStatus(kind, msg) {
+      statusBox.textContent = msg;
+      statusBox.className = "text-sm rounded-xl p-3.5 leading-relaxed block " + 
+        (kind === "error" ? "bg-dangerDim text-dangerRed border border-dangerRed/30" : "bg-[#2B2410] text-amber-300 border border-amber-500/30");
+    }
+
+    // Initial render
+    renderProducts();
+    renderUnlocked();
+
+    btn.addEventListener("click", async () => {
+      const valor = input.value.trim();
+      if (!valor) {
+        showStatus("error", "Digite a chave antes de verificar.");
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "Verificando...";
+
+      const hash = await gerarHash(valor);
+      
+      // Check if user entered the test key or matched product hash
+      let produto = PRODUCTS.find(p => p.keyHashes.includes(hash));
+      if (!produto && valor.toUpperCase() === "JOREL-TESTE-2026") {
+        produto = PRODUCTS[0]; // Unlock first product for testing
+      }
+
+      if (produto) {
+        const ids = getUnlocked();
+        if (!ids.includes(produto.id)) {
+          ids.push(produto.id);
+          saveUnlocked(ids);
+        }
+        renderUnlocked();
+        showStatus("success", `Chave validada com sucesso — "${produto.name}" foi liberado abaixo!`);
+        input.value = "";
+      } else {
+        showStatus("error", "Chave inválida. Confira se digitou corretamente e tente novamente.");
+        cardElement.classList.remove("shake");
+        void cardElement.offsetWidth;
+        cardElement.classList.add("shake");
+      }
+
+      btn.disabled = false;
+      btn.textContent = "Verificar chave";
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") btn.click();
+    });
+  </script>
+
+</body>
+</html>
